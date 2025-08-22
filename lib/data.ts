@@ -38,6 +38,14 @@ export const links = [
 
 export const experiencesData = [
   {
+    title: "Data Scientist @ Bliink AI Payments",
+    location: "Iselin, NJ, USA",
+    description:
+      "Architected real-time and batch data pipelines for transaction ingestion and model training, streaming through Apache Kafka and coordinating 10+ Apache Airflow DAG tasks for feature engineering, synthetic data generation based on fraud scenarios, and weekly retraining cutting down data latency by 50%. Built and trained ensemble models (Neural Network, Random Forest, XGBoost) on GPU clusters (100 GPU-hrs), achieving 95% ROC-AUC. Built a secure Model/Parameter Admin module for fraud case manager (FastAPI + React), enabling analysts to adjust thresholds and feature weights on the fly with role-based access control and audit logging. Containerized models in a FastAPI microservice on Azure Kubernetes Service, delivering 1500 req/s with processing transactions < 600ms and implemented GitHub Actions + Terraform + Helm CI/CD pipelines, enabling blue-green releases and rolling upgrades, reducing deployment time significantly. Building a feedback loop that turns analyst case outcomes into reward signals retraining a lightweight RL agent and working on MCP servers that surface internal APIs and data stores to the chat assistant.",
+    icon: React.createElement(GiArtificialIntelligence),
+    date: "January 2025 - Present",
+  },
+  {
     title: "Software Engineer Intern @ Q2",
     location: "Austin, TX",
     description:
