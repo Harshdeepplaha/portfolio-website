@@ -4,30 +4,6 @@ import React from "react";
 import { useSectionInView } from "@/lib/hooks";
 import { motion } from "framer-motion";
 import { IconCloud } from "./ui/icon-cloud";
-import {
-  SiPython,
-  SiJavascript,
-  SiTypescript,
-  SiNodedotjs,
-  SiFastapi,
-  SiReact,
-  SiPytorch,
-  SiTensorflow,
-  SiKubernetes,
-  SiDocker,
-  SiPostgresql,
-  SiAmazon,
-  SiApachekafka,
-  SiGit,
-  SiMysql,
-  SiNeo4J,
-  SiHuggingface,
-  SiJenkins,
-  SiApachespark,
-  SiApacheairflow,
-  SiGooglecloud,
-} from "react-icons/si";
-import { FaJava, FaMicrosoft, FaDatabase } from "react-icons/fa";
 
 // Skill groups - comprehensive list from resume
 const skillGroups = [
@@ -49,29 +25,34 @@ const skillGroups = [
   },
 ];
 
-// Map top skills to React Icons components for icon cloud (selecting most prominent ones)
-const skillIcons = [
-  <SiPython key="python" className="text-[#3776AB]" />,
-  <FaJava key="java" className="text-[#007396]" />,
-  <SiTypescript key="typescript" className="text-[#3178C6]" />,
-  <SiJavascript key="javascript" className="text-[#F7DF1E]" />,
-  <SiNodedotjs key="nodejs" className="text-[#339933]" />,
-  <SiFastapi key="fastapi" className="text-[#009688]" />,
-  <SiReact key="react" className="text-[#61DAFB]" />,
-  <SiPytorch key="pytorch" className="text-[#EE4C2C]" />,
-  <SiTensorflow key="tensorflow" className="text-[#FF6F00]" />,
-  <SiHuggingface key="huggingface" className="text-[#FFD21E]" />,
-  <SiKubernetes key="kubernetes" className="text-[#326CE5]" />,
-  <SiDocker key="docker" className="text-[#2496ED]" />,
-  <SiPostgresql key="postgresql" className="text-[#4169E1]" />,
-  <SiMysql key="mysql" className="text-[#4479A1]" />,
-  <SiAmazon key="aws" className="text-[#FF9900]" />,
-  <FaMicrosoft key="azure" className="text-[#0078D4]" />,
-  <SiGooglecloud key="gcp" className="text-[#4285F4]" />,
-  <SiApachekafka key="kafka" className="text-[#231F20] dark:text-white" />,
-  <SiApachespark key="spark" className="text-[#E25A1C]" />,
-  <SiGit key="git" className="text-[#F05032]" />,
+// Map top skills to simpleicons.org slugs for icon cloud
+const skillSlugs = [
+  "python",
+  "java",
+  "typescript",
+  "javascript",
+  "nodedotjs",
+  "fastapi",
+  "react",
+  "pytorch",
+  "tensorflow",
+  "huggingface",
+  "kubernetes",
+  "docker",
+  "postgresql",
+  "mysql",
+  "amazonaws",
+  "microsoftazure",
+  "googlecloud",
+  "apachekafka",
+  "apachespark",
+  "git",
 ];
+
+// Convert slugs to simpleicons.org image URLs
+const skillImages = skillSlugs.map(
+  (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`
+);
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -148,8 +129,8 @@ export default function Skills() {
             viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
           >
-            <div className="relative h-[480px] lg:h-[560px] w-full max-w-lg flex items-center justify-center">
-              <IconCloud icons={skillIcons} />
+            <div className="relative h-[480px] lg:h-[560px] w-full max-w-lg flex items-center justify-center overflow-hidden">
+              <IconCloud images={skillImages} />
             </div>
           </motion.div>
         </div>
