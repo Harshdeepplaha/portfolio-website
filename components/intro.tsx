@@ -12,7 +12,7 @@ import { useActiveSectionContext } from "@/context/active-section-context";
 import ProfileImg from "@/public/profile.jpg";
 import { Highlighter } from "@/components/ui/highlighter";
 import { Button } from "@/components/ui/button";
-import { Meteors } from "@/components/ui/meteors";
+import { DotPattern } from "@/components/ui/dot-pattern";
 
 export default function Intro() {
   const { ref } = useSectionInView("Home", 0.5);
@@ -24,18 +24,22 @@ export default function Intro() {
       id="home"
       className="mb-28 max-w-[70rem] text-center sm:mb-0 scroll-mt-[100rem] relative min-h-[700px] w-full overflow-visible"
     >
-      {/* Meteors Background - Full Screen */}
-      <div className="absolute left-[calc(-50vw+50%)] right-[calc(-50vw+50%)] w-screen h-full z-0 pointer-events-none overflow-visible">
-        <Meteors 
-          number={20}
-          angle={45}
-        />
+      {/* Dot Pattern Background with Glow - Full Screen */}
+      <div className="absolute left-[calc(-50vw+50%)] right-[calc(-50vw+50%)] -top-28 sm:-top-36 w-screen h-[calc(100%+28rem)] sm:h-[calc(100%+36rem)] z-0 pointer-events-none overflow-visible">
+        <div className="relative h-full w-full [mask-image:radial-gradient(ellipse_80%_100%_at_50%_50%,black_40%,transparent_80%)]">
+          <DotPattern 
+            glow={true}
+            width={20}
+            height={20}
+            className="opacity-100 dark:opacity-100"
+          />
+        </div>
       </div>
       
       <div className="relative z-10">
         <div className="flex items-center justify-center">
           <div className="relative">
-            {/* Background circle to hide meteors behind image */}
+            {/* Background circle to hide striped pattern behind image */}
             <div className="absolute inset-0 h-64 w-64 rounded-full bg-background dark:bg-background -z-10" />
             
             <motion.div
