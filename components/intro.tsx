@@ -22,23 +22,22 @@ export default function Intro() {
     <section
       ref={ref}
       id="home"
-      className="mb-28 max-w-[70rem] text-center sm:mb-0 scroll-mt-[100rem] relative min-h-[700px] w-full overflow-hidden"
+      className="mb-28 max-w-[70rem] text-center sm:mb-0 scroll-mt-[100rem] relative min-h-[700px] w-full overflow-visible"
     >
-      {/* Meteors Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-visible">
+      {/* Meteors Background - Full Screen */}
+      <div className="absolute left-[calc(-50vw+50%)] right-[calc(-50vw+50%)] w-screen h-full z-0 pointer-events-none overflow-visible">
         <Meteors 
-          number={150}
-          minDelay={0}
-          maxDelay={0.5}
-          minDuration={3}
-          maxDuration={8}
-          angle={215}
+          number={20}
+          angle={45}
         />
       </div>
       
       <div className="relative z-10">
         <div className="flex items-center justify-center">
           <div className="relative">
+            {/* Background circle to hide meteors behind image */}
+            <div className="absolute inset-0 h-64 w-64 rounded-full bg-background dark:bg-background -z-10" />
+            
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -46,7 +45,7 @@ export default function Intro() {
                 type: "tween",
                 duration: 0.2,
               }}
-              className="h-64 w-64 rounded-full overflow-hidden shadow-2xl dark:bg-black/30"
+              className="h-64 w-64 rounded-full overflow-hidden shadow-2xl dark:bg-black/30 relative z-10"
               style={{ boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)' }}
             >
               <Image

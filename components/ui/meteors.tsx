@@ -1,3 +1,4 @@
+
 "use client"
 
 import React, { useEffect, useState } from "react"
@@ -28,12 +29,10 @@ export const Meteors = ({
   )
 
   useEffect(() => {
-    if (typeof window === "undefined") return;
-    
     const styles = [...new Array(number)].map(() => ({
       "--angle": -angle + "deg",
-      top: `${Math.random() * 100}%`,
-      left: `${Math.random() * 100}%`,
+      top: "-5%",
+      left: `calc(0% + ${Math.floor(Math.random() * window.innerWidth)}px)`,
       animationDelay: Math.random() * (maxDelay - minDelay) + minDelay + "s",
       animationDuration:
         Math.floor(Math.random() * (maxDuration - minDuration) + minDuration) +
@@ -50,12 +49,12 @@ export const Meteors = ({
           key={idx}
           style={{ ...style }}
           className={cn(
-            "animate-meteor pointer-events-none absolute w-[2px] h-[2px] rotate-[var(--angle)] rounded-full bg-gray-300 dark:bg-gray-400 shadow-[0_0_4px_rgba(255,255,255,0.5)]",
+            "animate-meteor pointer-events-none absolute size-0.5 rotate-[var(--angle)] rounded-full bg-zinc-500 shadow-[0_0_0_1px_#ffffff10]",
             className
           )}
         >
           {/* Meteor Tail */}
-          <div className="pointer-events-none absolute top-1/2 -z-10 h-[1px] w-[80px] -translate-y-1/2 bg-gradient-to-r from-gray-300 via-gray-400/50 to-transparent dark:from-gray-400 dark:via-gray-500/40" />
+          <div className="pointer-events-none absolute top-1/2 -z-10 h-px w-[50px] -translate-y-1/2 bg-gradient-to-r from-zinc-500 to-transparent" />
         </span>
       ))}
     </>
